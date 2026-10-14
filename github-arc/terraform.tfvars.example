@@ -1,0 +1,57 @@
+# Copy to terraform.tfvars (gitignored) and fill in. Everything below the
+# GitHub section is optional; the defaults give working runners with Docker
+# and no persistent caches.
+
+# --- GitHub ------------------------------------------------------------------
+github_config_url = "https://github.com/my-org" # or https://github.com/me/my-repo
+
+# GitHub App (recommended). Put the private key at github-app.pem (gitignored).
+github_app_id              = "123456"
+github_app_installation_id = "12345678"
+# github_app_private_key_path = "github-app.pem"
+
+# ...or a personal access token instead of the App:
+# github_token = "ghp_..."
+
+# runner_group = "self-hosted"
+
+# --- Cluster -----------------------------------------------------------------
+# kubeconfig_path = "~/.kube/config"
+# kube_context    = "my-cluster"
+
+# --- Where pods run ----------------------------------------------------------
+# runner_node_selector = { "kubernetes.io/hostname" = "build-01" }
+# runner_tolerations   = [{ key = "ci", operator = "Exists", effect = "NoSchedule" }]
+# controller_node_selector = { "node-role.kubernetes.io/control-plane" = "true" }
+# runner_priority_class = { name = "ci-runner", value = -1000 }
+
+# --- Sizes (each key is a runs-on label) -------------------------------------
+# runner_classes = {
+#   "k8s" = { min_runners = 1, max_runners = 4, cpu_request = "1", cpu_limit = "4", memory_request = "2Gi", memory_limit = "8Gi" }
+#   "k8s-lg" = {
+#     max_runners = 2, cpu_request = "4", cpu_limit = "16", memory_request = "16Gi", memory_limit = "32Gi"
+#     node_selector = { "kubernetes.io/hostname" = "big-box" }
+#   }
+# }
+
+# --- Image -------------------------------------------------------------------
+# Pre-warmed image from runner-image/build.sh:
+# runner_image = "my-registry/actions-runner:20260101"
+
+# --- Docker ------------------------------------------------------------------
+# enable_docker              = true
+# docker_registry_mirror     = "http://registry-mirror.registry.svc.cluster.local:5000"
+# docker_insecure_registries = ["registry-mirror.registry.svc.cluster.local:5000"]
+
+# --- Caches ------------------------------------------------------------------
+# npm_registry   = "http://verdaccio.verdaccio.svc.cluster.local:4873/"
+# cache_host_dir = "/var/lib/ci-cache"
+
+# --- Nix (needs the runner-image/ image) -------------------------------------
+# enable_nix = true
+# nix_binary_cache = {
+#   public_key = "my-ci-1:AAAA..."   # contents of nix-cache-key.pub
+#   nfs_server = "nas.example.internal"
+#   nfs_path   = "/export/nix-cache"
+#   # or: existing_claim = "nix-cache"
+# }

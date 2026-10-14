@@ -1,0 +1,12 @@
+terraform.tfvars
+*.tfstate
+*.tfstate.backup
+.terraform.tfstate.lock.info
+tfplan
+.terraform/
+*_override.tf
+
+# GitHub App private keys
+*.pem
+# nix binary-cache signing key (private half)
+*.sec

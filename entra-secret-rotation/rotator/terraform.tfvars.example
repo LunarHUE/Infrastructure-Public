@@ -1,0 +1,5 @@
+repo_url               = "git@github.com:me/infra.git"
+git_ssh_key_path       = "rotator-deploy-key" # read-only deploy key
+roots                  = ["entra-secret-rotation/example-app-secret"]
+target_namespaces      = ["minio"]
+service_account_issuer = "https://oidc.example.com"

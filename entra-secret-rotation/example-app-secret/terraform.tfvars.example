@@ -1,0 +1,5 @@
+application_object_id = "00000000-0000-0000-0000-000000000000"
+namespace             = "minio"
+secret_name           = "minio-oidc"
+restart_deployments   = ["minio"]
+# rotator_object_id   = "<tofu -chdir=../rotator output -raw service_principal_object_id>"
